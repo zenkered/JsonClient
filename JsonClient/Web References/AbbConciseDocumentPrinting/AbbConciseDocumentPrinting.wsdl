@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.abbconcise.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.abbconcise.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.abbconcise.com/">
+      <s:element name="AuthenticateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateUserResult" type="tns:AuthenticateResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AuthenticateResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="tns:CommonResult" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccessToken" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CommonResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseCode" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoadAndRequestDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccessCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RequestXML">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAndRequestDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAndRequestDocumentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAndRequestDocumentObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccessCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RequestInfo" type="tns:DocumentPrintingRequestType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DocumentPrintingRequestType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PrintRequestInfo" type="tns:PrintRequest" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentHeader" type="tns:ArrayOfInvoiceHeader" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrintRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrinterIp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnPDF" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInvoiceHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InvoiceHeader" nillable="true" type="tns:InvoiceHeader" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipToNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillToAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoicePrintDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebOrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerPONumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesRepCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerOrderID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Carrier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipVia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipMethodDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipMethodWebDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentTrackingInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TermsDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderComment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderByCallerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderTakenBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerOrderOrigin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MerchandiseTotal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceSalesTax" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceFreight" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceMiscSales" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceTotalSales" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackSlipSalesTax" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackSlipFreight" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackSlipFuelSurcharge" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackSlipTotal" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackSlipNotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipToPatient" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientInvoiceSales" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientSalesTax" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientFreight" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientTotalSales" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientDiscount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientDifference" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportedPatientInvoiceSales" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportedPatientSalesTax" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportedPatientFreight" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportedPatientTotalSales" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportedPatientDiscount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportedPatientCopay" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsReprint" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromoCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransmissionDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OfficeWebSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrescribingDoctor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RebateText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HeaderBodyText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EdiReferenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WDSIIInvoiceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayPricing" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PageFooterText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyOrderNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyOrderDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyBillToAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyShipToAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyPONumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyInvoiceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyTermsDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyCarrierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyShipVIaCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipComplete" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceCharges" type="tns:ArrayOfInvoiceHeaderCharges" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceDetails" type="tns:ArrayOfInvoiceDetails" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceAddresses" type="tns:ArrayOfAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceLensBankSummary" type="tns:ArrayOfInvoiceLensBankSummary" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceNotes" type="tns:ArrayOfInvoiceNotes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInvoiceHeaderCharges">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InvoiceHeaderCharges" nillable="true" type="tns:InvoiceHeaderCharges" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceHeaderCharges">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SequenceNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChargeDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChargeAmount" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="isSubTotalDivider" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInvoiceDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InvoiceDetails" nillable="true" type="tns:InvoiceDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceLno" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemDescription2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebItemDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemBinLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeftRightIndicator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityOrdered" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityShipped" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityDue" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BaseCurve" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Diameter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpherePower" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cylinder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Axis" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddPower" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExtendedPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientExtendedPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EtaInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailAddons" type="tns:ArrayOfInvoiceDetailAddon" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInvoiceDetailAddon">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InvoiceDetailAddon" nillable="true" type="tns:InvoiceDetailAddon" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceDetailAddon">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SequenceNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddonDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddonAmount" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AddressType" type="tns:AddressTypes" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateProvinceCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AddressTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="BillTo" />
+          <s:enumeration value="ReturnTo" />
+          <s:enumeration value="ShipFrom" />
+          <s:enumeration value="ShipTo" />
+          <s:enumeration value="Office" />
+          <s:enumeration value="BillingOffice" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfInvoiceLensBankSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InvoiceLensBankSummary" nillable="true" type="tns:InvoiceLensBankSummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceLensBankSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SequenceNo" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInvoiceNotes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InvoiceNotes" nillable="true" type="tns:InvoiceNotes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceNotes">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SequenceNo" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoadAndRequestDocumentObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAndRequestDocumentObjectResult" type="tns:DocumentPrintingResponseType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DocumentPrintingResponseType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseCode" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrintRequestInfo" type="tns:PrintRequest" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseDocumentText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoadAndRequestDocumentObjectArray">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccessCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RequestInfo" type="tns:ArrayOfDocumentPrintingRequestType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDocumentPrintingRequestType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentPrintingRequestType" nillable="true" type="tns:DocumentPrintingRequestType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoadAndRequestDocumentObjectArrayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAndRequestDocumentObjectArrayResult" type="tns:DocumentPrintingResponseType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoutUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccessCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoutUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogoutUserResult" type="tns:LogoutUserResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogoutUserResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="tns:CommonResult" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAndRequestDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAndRequestDocument" />
+  </wsdl:message>
+  <wsdl:message name="LoadAndRequestDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAndRequestDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAndRequestDocumentObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAndRequestDocumentObject" />
+  </wsdl:message>
+  <wsdl:message name="LoadAndRequestDocumentObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAndRequestDocumentObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAndRequestDocumentObjectArraySoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAndRequestDocumentObjectArray" />
+  </wsdl:message>
+  <wsdl:message name="LoadAndRequestDocumentObjectArraySoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAndRequestDocumentObjectArrayResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutUserSoapIn">
+    <wsdl:part name="parameters" element="tns:LogoutUser" />
+  </wsdl:message>
+  <wsdl:message name="LogoutUserSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AbbConciseDocumentPrintingSoap">
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input message="tns:AuthenticateUserSoapIn" />
+      <wsdl:output message="tns:AuthenticateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAndRequestDocument">
+      <wsdl:input message="tns:LoadAndRequestDocumentSoapIn" />
+      <wsdl:output message="tns:LoadAndRequestDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAndRequestDocumentObject">
+      <wsdl:input message="tns:LoadAndRequestDocumentObjectSoapIn" />
+      <wsdl:output message="tns:LoadAndRequestDocumentObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAndRequestDocumentObjectArray">
+      <wsdl:input message="tns:LoadAndRequestDocumentObjectArraySoapIn" />
+      <wsdl:output message="tns:LoadAndRequestDocumentObjectArraySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoutUser">
+      <wsdl:input message="tns:LogoutUserSoapIn" />
+      <wsdl:output message="tns:LogoutUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AbbConciseDocumentPrintingSoap" type="tns:AbbConciseDocumentPrintingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://www.abbconcise.com/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAndRequestDocument">
+      <soap:operation soapAction="http://www.abbconcise.com/LoadAndRequestDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAndRequestDocumentObject">
+      <soap:operation soapAction="http://www.abbconcise.com/LoadAndRequestDocumentObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAndRequestDocumentObjectArray">
+      <soap:operation soapAction="http://www.abbconcise.com/LoadAndRequestDocumentObjectArray" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutUser">
+      <soap:operation soapAction="http://www.abbconcise.com/LogoutUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AbbConciseDocumentPrintingSoap12" type="tns:AbbConciseDocumentPrintingSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap12:operation soapAction="http://www.abbconcise.com/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAndRequestDocument">
+      <soap12:operation soapAction="http://www.abbconcise.com/LoadAndRequestDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAndRequestDocumentObject">
+      <soap12:operation soapAction="http://www.abbconcise.com/LoadAndRequestDocumentObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAndRequestDocumentObjectArray">
+      <soap12:operation soapAction="http://www.abbconcise.com/LoadAndRequestDocumentObjectArray" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutUser">
+      <soap12:operation soapAction="http://www.abbconcise.com/LogoutUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AbbConciseDocumentPrinting">
+    <wsdl:port name="AbbConciseDocumentPrintingSoap" binding="tns:AbbConciseDocumentPrintingSoap">
+      <soap:address location="http://localhost:1937/AbbConciseDocumentPrinting.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AbbConciseDocumentPrintingSoap12" binding="tns:AbbConciseDocumentPrintingSoap12">
+      <soap12:address location="http://localhost:1937/AbbConciseDocumentPrinting.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
