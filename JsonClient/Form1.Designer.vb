@@ -61,7 +61,7 @@ Partial Class Form1
         '
         Me.btnPrintLocal.Location = New System.Drawing.Point(22, 14)
         Me.btnPrintLocal.Name = "btnPrintLocal"
-        Me.btnPrintLocal.Size = New System.Drawing.Size(180, 49)
+        Me.btnPrintLocal.Size = New System.Drawing.Size(180, 29)
         Me.btnPrintLocal.TabIndex = 0
         Me.btnPrintLocal.Text = "Print Selected"
         Me.btnPrintLocal.UseVisualStyleBackColor = True
@@ -77,21 +77,21 @@ Partial Class Form1
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.UltraLabel1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.cmbURL)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.UltraLabel1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnPrintLocal)
         '
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
         Me.SplitContainer1.Size = New System.Drawing.Size(853, 592)
-        Me.SplitContainer1.SplitterDistance = 117
+        Me.SplitContainer1.SplitterDistance = 90
         Me.SplitContainer1.TabIndex = 1
         '
         'UltraLabel1
         '
         Me.UltraLabel1.AutoSize = True
-        Me.UltraLabel1.Location = New System.Drawing.Point(22, 71)
+        Me.UltraLabel1.Location = New System.Drawing.Point(22, 47)
         Me.UltraLabel1.Name = "UltraLabel1"
         Me.UltraLabel1.Size = New System.Drawing.Size(27, 14)
         Me.UltraLabel1.TabIndex = 4
@@ -99,7 +99,7 @@ Partial Class Form1
         '
         'cmbURL
         '
-        Me.cmbURL.Location = New System.Drawing.Point(22, 84)
+        Me.cmbURL.Location = New System.Drawing.Point(22, 60)
         Me.cmbURL.Name = "cmbURL"
         Me.cmbURL.Size = New System.Drawing.Size(552, 21)
         Me.cmbURL.TabIndex = 3
@@ -118,7 +118,7 @@ Partial Class Form1
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.TextBox1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(853, 471)
+        Me.SplitContainer2.Size = New System.Drawing.Size(853, 498)
         Me.SplitContainer2.SplitterDistance = 271
         Me.SplitContainer2.TabIndex = 1
         '
@@ -197,7 +197,7 @@ Partial Class Form1
         Me.grdForms.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdForms.Location = New System.Drawing.Point(0, 0)
         Me.grdForms.Name = "grdForms"
-        Me.grdForms.Size = New System.Drawing.Size(271, 471)
+        Me.grdForms.Size = New System.Drawing.Size(271, 498)
         Me.grdForms.TabIndex = 2
         Me.grdForms.Text = "UltraGrid1"
         '
@@ -208,7 +208,7 @@ Partial Class Form1
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBox1.Size = New System.Drawing.Size(578, 471)
+        Me.TextBox1.Size = New System.Drawing.Size(578, 498)
         Me.TextBox1.TabIndex = 0
         '
         'Form1
