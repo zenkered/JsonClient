@@ -42,8 +42,6 @@ Partial Class Form1
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel()
         Me.cmbURL = New Infragistics.Win.UltraWinEditors.UltraComboEditor()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnPrintUAT = New System.Windows.Forms.Button()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.grdForms = New Infragistics.Win.UltraWinGrid.UltraGrid()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -65,7 +63,7 @@ Partial Class Form1
         Me.btnPrintLocal.Name = "btnPrintLocal"
         Me.btnPrintLocal.Size = New System.Drawing.Size(180, 49)
         Me.btnPrintLocal.TabIndex = 0
-        Me.btnPrintLocal.Text = "Print from Local Files"
+        Me.btnPrintLocal.Text = "Print Selected"
         Me.btnPrintLocal.UseVisualStyleBackColor = True
         '
         'SplitContainer1
@@ -81,8 +79,6 @@ Partial Class Form1
         '
         Me.SplitContainer1.Panel1.Controls.Add(Me.UltraLabel1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.cmbURL)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Button1)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.btnPrintUAT)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnPrintLocal)
         '
         'SplitContainer1.Panel2
@@ -94,9 +90,10 @@ Partial Class Form1
         '
         'UltraLabel1
         '
+        Me.UltraLabel1.AutoSize = True
         Me.UltraLabel1.Location = New System.Drawing.Point(22, 71)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(146, 12)
+        Me.UltraLabel1.Size = New System.Drawing.Size(27, 14)
         Me.UltraLabel1.TabIndex = 4
         Me.UltraLabel1.Text = "URL"
         '
@@ -106,24 +103,6 @@ Partial Class Form1
         Me.cmbURL.Name = "cmbURL"
         Me.cmbURL.Size = New System.Drawing.Size(552, 21)
         Me.cmbURL.TabIndex = 3
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(394, 14)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(180, 49)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Print from Test Directory"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'btnPrintUAT
-        '
-        Me.btnPrintUAT.Location = New System.Drawing.Point(208, 14)
-        Me.btnPrintUAT.Name = "btnPrintUAT"
-        Me.btnPrintUAT.Size = New System.Drawing.Size(180, 49)
-        Me.btnPrintUAT.TabIndex = 1
-        Me.btnPrintUAT.Text = "Print from UAT Directory"
-        Me.btnPrintUAT.UseVisualStyleBackColor = True
         '
         'SplitContainer2
         '
@@ -258,8 +237,6 @@ Partial Class Form1
     Friend WithEvents btnPrintLocal As System.Windows.Forms.Button
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents btnPrintUAT As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents cmbURL As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents UltraLabel1 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents SplitContainer2 As SplitContainer
